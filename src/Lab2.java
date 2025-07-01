@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -195,6 +193,38 @@ public class Lab2 {
             }
         }
 
+//        7. Write a program that checks the strength of a password. Create a method that evaluates a
+//        password based on criteria like length, inclusion of special characters, and
+//        uppercase/lowercase letters.
+        int totalScore = 0;
+        int lengthScore = 0;
+        int specialScore = 0;
+        int upperLowerScore = 0;
+        System.out.println();
+        System.out.println("Checking password strength:");
+        System.out.println("Enter your password:");
+        input.nextLine();
+        String password = input.nextLine();
+
+
+        lengthScore = checkLength(password);
+        specialScore = checkSpecialCharacters(password);
+        upperLowerScore = checkUpperCaseLowerCase(password);
+
+        totalScore = lengthScore+specialScore+upperLowerScore;
+
+        if (totalScore >= 8){
+            System.out.println("The password is strong");
+        } else if (totalScore >=5){
+            System.out.println("The password is moderately strong");
+        } else {
+            System.out.println("The password is weak! please change it!");
+        }
+
+//- Classify the password as strong (8 or more), moderately strong (5 or more), or weak
+//    based on the totalScore.
+
+
     }
 
 
@@ -227,4 +257,160 @@ public class Lab2 {
         System.out.print(rand.nextInt(min, max));
     }
 
+//Q7
+    public static int checkLength(String pass){
+        int score;
+
+        if (pass.length() >=8){
+            score = 3;
+        }else if (pass.length() >=6){
+            score = 2;
+        } else {
+            score = 0;
+        }
+
+        return score;
+    }
+    public static int checkSpecialCharacters(String pass){
+        int score = 0;
+        char[] array = pass.toCharArray();
+
+        for (char c: array){
+            switch (c){
+                case '!':
+                case '@':
+                case '#':
+                case '$':
+                case '%':
+                case '^':
+                case '&':
+                case '*':
+                case '(':
+                case ')':
+                case '_':
+                case '+':
+                case '-':
+                case '=':
+                case '{':
+                case '}':
+                case '[':
+                case ']':
+                case '|':
+                case ':':
+                case ';':
+                case '\"':
+                case '\'':
+                case '<':
+                case '>':
+                case ',':
+                case '?':
+                case '/':
+                case '\\':
+                case '.':
+                case '~':
+                case '`':
+                case '€':
+                case '£':
+                case '¥':
+                case '¢':
+                case '±':
+                case '÷':
+                case '×':
+                case '°':
+                case '√':
+                case '∞':
+                case 'µ':
+                case '©':
+                case '®':
+                case '™':
+                case '§':
+                case 'á':
+                case 'é':
+                case 'ñ':
+                case 'ü':
+                case '¼':
+                case '½':
+                case '¾':
+                    score = 2;
+                    break;
+            }
+        }
+
+        return score;
+    }
+    public static int checkUpperCaseLowerCase(String pass){
+        int score;
+        boolean hasUpper = false;
+        boolean hasLower = false;
+
+        char[] array = pass.toCharArray();
+        for (char c:array){
+            switch (c){
+                case 'A':
+                case 'B':
+                case 'C':
+                case 'D':
+                case 'E':
+                case 'F':
+                case 'G':
+                case 'H':
+                case 'I':
+                case 'J':
+                case 'K':
+                case 'L':
+                case 'M':
+                case 'N':
+                case 'O':
+                case 'P':
+                case 'Q':
+                case 'R':
+                case 'S':
+                case 'T':
+                case 'U':
+                case 'V':
+                case 'W':
+                case 'X':
+                case 'Y':
+                case 'Z':
+                    hasUpper = true;
+                    break;
+                case 'a':
+                case 'b':
+                case 'c':
+                case 'd':
+                case 'e':
+                case 'f':
+                case 'g':
+                case 'h':
+                case 'i':
+                case 'j':
+                case 'k':
+                case 'l':
+                case 'm':
+                case 'n':
+                case 'o':
+                case 'p':
+                case 'q':
+                case 'r':
+                case 's':
+                case 't':
+                case 'u':
+                case 'v':
+                case 'w':
+                case 'x':
+                case 'y':
+                case 'z':
+                    hasLower = true;
+                    break;
+            }
+
+        }
+
+        if (hasUpper && hasLower){
+            score = 3;
+        } else {
+            score = 0;
+        }
+        return score;
+    }
 }
