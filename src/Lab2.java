@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Lab2 {
@@ -48,5 +49,26 @@ public class Lab2 {
 
         System.out.println(occurringNumber + " occurs "+occurs+" times");
 
+//        3.Write a program to find the k largest elements in a given array. Elements in the array can be in
+//        any order.
+
+        System.out.println("Checking the largest element in an array:");
+        System.out.println("How many elements in the array?");
+        int[] largestElements = new int[input.nextInt()]; // sort first
+
+        for (int i = 0; i <= largestElements.length-1; i++) {
+            System.out.println("Please enter the "+(i+1)+" number:");
+            largestElements[i]= input.nextInt();
+        }
+
+        Arrays.sort(largestElements);
+
+        System.out.println("The 3 largest elements are:");
+        System.out.println(largestElements[largestElements.length-1] + " "
+                +largestElements[largestElements.length-2] + " "
+                +largestElements[largestElements.length-3]);
+
     }
+
+
 }
