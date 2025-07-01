@@ -196,16 +196,17 @@ public class Lab2 {
 //        7. Write a program that checks the strength of a password. Create a method that evaluates a
 //        password based on criteria like length, inclusion of special characters, and
 //        uppercase/lowercase letters.
+
         int totalScore = 0;
         int lengthScore = 0;
         int specialScore = 0;
         int upperLowerScore = 0;
+
         System.out.println();
         System.out.println("Checking password strength:");
         System.out.println("Enter your password:");
         input.nextLine();
         String password = input.nextLine();
-
 
         lengthScore = checkLength(password);
         specialScore = checkSpecialCharacters(password);
@@ -221,8 +222,15 @@ public class Lab2 {
             System.out.println("The password is weak! please change it!");
         }
 
-//- Classify the password as strong (8 or more), moderately strong (5 or more), or weak
-//    based on the totalScore.
+//        8. Create a method that generates the Fibonacci sequence up to a specified number of terms.
+//                Hint: The Fibonacci sequence is a mathematical sequence of numbers that starts with 0 and 1,
+//                and each subsequent number in the sequence is the sum of the two preceding ones.
+
+        System.out.println("Generating Fibonacci sequence");
+        System.out.println("How many terms to generate?");
+
+        int fibonacciTerms = input.nextInt();
+        fibonacciSequence(fibonacciTerms);
 
 
     }
@@ -412,5 +420,25 @@ public class Lab2 {
             score = 0;
         }
         return score;
+    }
+    public static void fibonacciSequence(int fibonacciTerms){
+        int first = 0;
+        int second = 0;
+        int sum;
+        for (int i = 0; i < fibonacciTerms; i++) {
+            if(i == 0 || i == 1){
+                System.out.print(i);
+                first = i;
+            } else {
+                sum = first+ second;
+                System.out.print(sum);
+                second = first;
+                first = sum;
+            }
+
+            if (i != fibonacciTerms-1){
+                System.out.print(", ");
+            }
+        }
     }
 }
