@@ -421,6 +421,8 @@ public class Lab2 {
         }
         return score;
     }
+
+    //Q8
     public static void fibonacciSequence(int fibonacciTerms){
         int first = 0;
         int second = 0;
