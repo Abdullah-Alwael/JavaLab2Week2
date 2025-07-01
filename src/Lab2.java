@@ -172,7 +172,7 @@ public class Lab2 {
             }
         }while (choice != 5);
 
-//        6. Create a method that generates a random number within a given range. Allow the user to
+//        Q6. Create a method that generates a random number within a given range. Allow the user to
 //        specify the range and call the method to display random numbers.
 //                Hint: use Random class
 
@@ -193,7 +193,7 @@ public class Lab2 {
             }
         }
 
-//        7. Write a program that checks the strength of a password. Create a method that evaluates a
+//        Q7. Write a program that checks the strength of a password. Create a method that evaluates a
 //        password based on criteria like length, inclusion of special characters, and
 //        uppercase/lowercase letters.
 
@@ -222,7 +222,7 @@ public class Lab2 {
             System.out.println("The password is weak! please change it!");
         }
 
-//        8. Create a method that generates the Fibonacci sequence up to a specified number of terms.
+//        Q8. Create a method that generates the Fibonacci sequence up to a specified number of terms.
 //                Hint: The Fibonacci sequence is a mathematical sequence of numbers that starts with 0 and 1,
 //                and each subsequent number in the sequence is the sum of the two preceding ones.
 
