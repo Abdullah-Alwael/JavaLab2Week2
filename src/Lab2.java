@@ -25,7 +25,7 @@ public class Lab2 {
         }
 
         //2. Write a program that displays the number of occurrences of an element in the array.
-
+        System.out.println();
         System.out.println("Checking the occurrences of an element in an array");
         Scanner input = new Scanner(System.in);
 
@@ -48,9 +48,9 @@ public class Lab2 {
         }
 
         System.out.println(occurringNumber + " occurs "+occurs+" times");
-
+//TODO do not use sort!
 //        3.Write a program to find the k largest elements in a given array. Elements in the array can be in
-//        any order.
+//        any order. do not use sort?
 
         System.out.println("Checking the largest element in an array:");
         System.out.println("How many elements in the array?");
@@ -68,7 +68,28 @@ public class Lab2 {
                 +largestElements[largestElements.length-2] + " "
                 +largestElements[largestElements.length-3]);
 
+        //Q4
+        System.out.println("Reversing an array:");
+        System.out.println("How many elements in the array?");
+        int[] reverseThisArray = new int[input.nextInt()];
+        //enter the elements
+        for (int i = 0; i <= reverseThisArray.length-1; i++) {
+            System.out.println("Please enter the "+(i+1)+" number:");
+            reverseThisArray[i]= input.nextInt();
+        }
+        //reverse the array
+        arrayReverse(reverseThisArray);
+
+
     }
 
+//        4. Create a method to reverse an array of integers. Implement the method without creating a new array.
+    public static void arrayReverse(int[] array){
+        System.out.println("Reversed array is:");
+        for (int i = array.length-1; i >= 0; i--) {
+            System.out.print(array[i]+" ");
+        }
+        System.out.println();
+    }
 
 }
