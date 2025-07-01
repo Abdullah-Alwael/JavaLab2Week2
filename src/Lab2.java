@@ -1,9 +1,10 @@
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
 public class Lab2 {
     public static void main(String[] args) {
-//        1.Write a program to find all the longest word in a given dictionary.
+//        Q1.Write a program to find all the longest word in a given dictionary.
         System.out.println("Checking longest word in the array");
 
         String[] longestWords = { "cat", "dog", "red", "is", "am" };
@@ -24,7 +25,7 @@ public class Lab2 {
             }
         }
 
-        //2. Write a program that displays the number of occurrences of an element in the array.
+        //Q2. Write a program that displays the number of occurrences of an element in the array.
         System.out.println();
         System.out.println("Checking the occurrences of an element in an array");
         Scanner input = new Scanner(System.in);
@@ -49,7 +50,7 @@ public class Lab2 {
 
         System.out.println(occurringNumber + " occurs "+occurs+" times");
 
-//        3.Write a program to find the k largest elements in a given array. Elements in the array can be in
+//        Q3.Write a program to find the k largest elements in a given array. Elements in the array can be in
 //        any order. do not use sort
 
         System.out.println("Checking the largest element in an array:");
@@ -109,7 +110,72 @@ public class Lab2 {
         arrayReverse(reverseThisArray);
 
 
+//        Q5. Write a menu-driven Java program with following option:
+//
+//        1. Accept elements of an array
+//        2. Display elements of an array
+//        3. Search the element within array
+//        4. Sort the array
+//        5. To Stop
+        System.out.println("Menu array:");
+        System.out.println("How many elements in the array?");
+        int[] menuArray = new int[input.nextInt()];
+        int choice = 0;
+        int numberToFind;
+        boolean isFound = false;
+        
+        do{
+            System.out.println("Enter one of the action numbers:");
+
+            System.out.println("1. Accept elements of an array");
+            System.out.println("2. Display elements of an array");
+            System.out.println("3. Search the element within array");
+            System.out.println("4. Sort the array");
+            System.out.println("5. To Stop");
+            choice = input.nextInt();
+
+            switch (choice){
+                case 1: //"1. Accept elements of an array"
+                    for (int i = 0; i <= menuArray.length-1; i++) {
+                        System.out.println("Please enter the "+(i+1)+" number:");
+                        menuArray[i] = input.nextInt();
+                    }
+                    break;
+                case 2: //"2. Display elements of an array"
+                    for (int n : menuArray){
+                        System.out.print(n + " ,");
+                    }
+                    System.out.println();
+                    break;
+                case 3: //"3. Search the element within array"
+                    System.out.println("What number to look for?");
+                    numberToFind = input.nextInt();
+                    for (int i = 0; i <= menuArray.length-1; i++) {
+                        if (menuArray[i] == numberToFind){
+                            isFound = true;
+                            System.out.println("Number "+numberToFind+" is found at location "+(i+1));
+                        }
+                    }
+                    if (!isFound){
+                        System.out.println("The number "+numberToFind+" could not be found in the array");
+                    }
+                    isFound = false;
+                    break;
+                case 4: //"4. Sort the array"
+                    sortNumbers(menuArray);
+                    System.out.println("The Array was sorted");
+                    break;
+                case 5: //"5. To Stop"
+                    // the choice is already = 5;
+                    break;
+                default:
+                    System.out.println("Not an option!, try again");
+            }
+        }while (choice != 5);
+
+
     }
+
 
 //        4. Create a method to reverse an array of integers. Implement the method without creating a new array.
     public static void arrayReverse(int[] array){
@@ -118,6 +184,20 @@ public class Lab2 {
             System.out.print(array[i]+" ");
         }
         System.out.println();
+    }
+
+    // Q5
+    public static void sortNumbers(int[] numbers){
+        int temp = 0;
+        for (int i = 0; i <= numbers.length-1; i++) {
+            for (int j = i+1; j <= numbers.length-1; j++) {
+                if (numbers[j] < numbers[i]){
+                    temp = numbers[i];
+                    numbers[i] = numbers[j];
+                    numbers[j] = temp;
+                }
+            }
+        }
     }
 
 }
