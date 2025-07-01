@@ -48,25 +48,53 @@ public class Lab2 {
         }
 
         System.out.println(occurringNumber + " occurs "+occurs+" times");
-//TODO do not use sort!
+
 //        3.Write a program to find the k largest elements in a given array. Elements in the array can be in
-//        any order. do not use sort?
+//        any order. do not use sort
 
         System.out.println("Checking the largest element in an array:");
         System.out.println("How many elements in the array?");
-        int[] largestElements = new int[input.nextInt()]; // sort first
+        int[] largestElements = new int[input.nextInt()]; // do not use sort;
 
-        for (int i = 0; i <= largestElements.length-1; i++) {
+        int firstLargest = 0, secondLargest = 0, thirdLargest = 0;
+
+        for (int i = 0; i <= largestElements.length-1; i++) { // the input loop, set first max number
             System.out.println("Please enter the "+(i+1)+" number:");
-            largestElements[i]= input.nextInt();
+            largestElements[i] = input.nextInt();
+            if (i == 0){ // assume first is largest
+                firstLargest = largestElements[i];
+            }
+            // set largest-first element
+            if (largestElements[i] > firstLargest){
+                firstLargest = largestElements[i];
+            }
         }
 
-        Arrays.sort(largestElements);
+        for (int i = 0; i <= largestElements.length-1; i++){ // set second largest
+
+            // set second-largest element
+            if (largestElements[i] == firstLargest){
+                continue;
+            }
+            if (largestElements[i] > secondLargest){
+                secondLargest = largestElements[i];
+            }
+        }
+
+        for (int i = 0; i <= largestElements.length-1; i++){
+            // set 3rd largest
+            if (largestElements[i] == firstLargest || largestElements[i] == secondLargest){
+                continue;
+            }
+            if (largestElements[i] > thirdLargest){
+                thirdLargest = largestElements[i];
+            }
+        }
 
         System.out.println("The 3 largest elements are:");
-        System.out.println(largestElements[largestElements.length-1] + " "
-                +largestElements[largestElements.length-2] + " "
-                +largestElements[largestElements.length-3]);
+        System.out.println(firstLargest + " "
+                +secondLargest+ " "
+                +thirdLargest);
 
         //Q4
         System.out.println("Reversing an array:");
