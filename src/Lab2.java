@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Lab2 {
@@ -173,11 +174,31 @@ public class Lab2 {
             }
         }while (choice != 5);
 
+//        6. Create a method that generates a random number within a given range. Allow the user to
+//        specify the range and call the method to display random numbers.
+//                Hint: use Random class
+
+            int min, max;
+        System.out.println("Random number generator:");
+        System.out.println("Enter the Minimum range number:");
+        min = input.nextInt();
+        System.out.println("Enter the maximum range number:");
+        max = input.nextInt();
+
+        System.out.println("Enter how many numbers to generate: ");
+        int numberToGenerate = input.nextInt();
+        System.out.println("The random numbers are:");
+        for (int i = 0; i <= numberToGenerate-1; i++) {
+            randomGenerator(min, max);
+            if (i != numberToGenerate-1){
+                System.out.print(", ");
+            }
+        }
 
     }
 
 
-//        4. Create a method to reverse an array of integers. Implement the method without creating a new array.
+//        Q4. Create a method to reverse an array of integers. Implement the method without creating a new array.
     public static void arrayReverse(int[] array){
         System.out.println("Reversed array is:");
         for (int i = array.length-1; i >= 0; i--) {
@@ -198,6 +219,12 @@ public class Lab2 {
                 }
             }
         }
+    }
+
+    //Q6
+    public static void randomGenerator(int min, int max){
+        Random rand = new Random();
+        System.out.print(rand.nextInt(min, max));
     }
 
 }
